@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+		<title>CONTACT - MARUYAMA's PORTFOLIO</title>
+		<meta name="description" content="maruyama's portfolio">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--リセットcss-->
+		<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css">
+        <!-- modaalのcss -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css">
+        <!--Googleフォント-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher">
+        <!--ファビコン-->
+        <link rel="icon" type="image/png" href="common/img/favicon.png">
+        <!--自作のcss-->
+        <link rel="stylesheet" href="common/css/common.css">
+		<link rel="stylesheet" href="_css/contact.css">
+        <!--jQuery-->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer></script>
+        <!-- modaal -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js" defer></script>
+        <!--font awesome-->
+        <script src="https://kit.fontawesome.com/e63ff7a4be.js" crossorigin="anonymous" defer></script>
+        <!--Adobeフォント-->
+		<script defer>
+        (function(d) {
+            var config = {
+            kitId: 'qnv1mex',
+            scriptTimeout: 3000,
+            async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+        </script>
+        <!--自作のjs-->
+        <script src="common/js/common.js" defer></script>
+        <script src="_js/contact.js" defer></script>
+    </head>
+
+    <body>
+        <!--マウスストーカー-->
+        <div class="stalker" id="js-stalker"></div>
+
+        <!-- ロード画面 -->
+        <div id="splash"></div>
+        <div class="splashbg"></div>
+
+        <!-- 画面遷移後に表示 -->
+        <div id="container">
+
+            <!--ヘッダー-->
+            <header>
+                <!-- snsアイコン --><div class="header-sns">
+                    <ul class="header-sns-list">
+                        <li><a href="https://x.com/maru_create0906"><i class="fa-brands fa-x-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/maru.creative.cloud/"><i class="fa-brands fa-instagram"></i></a></li>
+                    </ul>                    
+                </div>
+                <!-- menuボタン --><div class="header-menu">
+                    <div class="header-open">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <nav id="header-nav">
+                        <div class="header-nav-list">
+                            <ul>
+                                <li><a href="index.html">home</a></li>
+                                <li><a href="topics.html">topics</a></li>
+                                <li><a href="about.html">about</a></li>
+                                <li><a href="works.html">works</a></li>
+                                <li><a href="contact.html" class="current">contact</a></li>
+                            </ul>
+                            <!-- モバイル版のみに対応 -->
+                            <ul class="header-sns-list-mobile">
+                                <li><a href="https://x.com/maru_create0906"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="https://www.instagram.com/maru.creative.cloud/"><i class="fa-brands fa-instagram"></i></a></li>
+                            </ul> 
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- サイドボタン -->
+            <div class="side-btn">
+                <a href="index.html"></a>
+            </div>
+
+            <!-- ここからメインの画面 -->
+            <main id="contact">
+
+                <!--ここから右画面-->
+                <div class="right-area">
+                    <!-- サブタイトル -->
+                    <div class="subtitle">
+                        <div class="subtitle-image"><img src="_img/subtitle_04-1.png" alt="通常画像"></div>
+                        <div class="subtitle-hover"><img src="_img/subtitle_04-2.png" alt="ホバー画像"></div>
+                    </div>
+                    <!-- 注意書き -->
+                    <div class="right-notice">
+                        <ul>
+                            <li>制作のご相談やご質問などがあれば、お気軽にお問い合わせください。</li>
+                            <li>必須項目は必ずご入力ください。</li>
+                            <li>返信までにお日にちをいただく場合がございます。</li>
+                        </ul>
+                    </div>
+                    <!-- コピーライト -->
+                    <div class="copyright">
+                        <p><small>&copy; 2026 maruyama asuka</small></p>
+                    </div>
+                </div>
+
+                <!--ここから左画面-->
+                <div class="left-area">
+
+                    <!-- ここからお問い合わせフォーム -->
+                    <div class="left-container">
+                        <form action="#">
+                            <div>
+                                <label for="name">お名前</label>
+                                <input type="text" id="name" name="your-name" placeholder="お名前をご入力ください" required>
+                            </div>
+
+                            <div>
+                                <label for="name-furigana">お名前(フリガナ)</label>
+                                <input type="text" id="name-furigana" name="your-name" placeholder="お名前(フリガナ)をご入力ください" required>
+                            </div>
+
+                            <div>
+                                <label for="company">会社名</label>
+                                <input type="text" id="company" name="your-company" placeholder="会社名をご入力ください" required>
+                            </div>
+
+                            <div>
+                                <label for="email">メールアドレス</label>
+                                <input type="email" id="email" name="your-email" placeholder="メールアドレスをご入力ください" required>
+                            </div>
+
+                            <div>
+                                <label for="message">お問い合わせ内容</label>
+                                <textarea id="message" name="your-message" placeholder="お問い合わせ内容をご入力ください" required></textarea>
+                            </div>
+                        </form>
+                    </div>    
+
+                    <!-- プライバシーポリシー -->
+                    <div class="left-checkbox">
+                        <input type="checkbox" class="checkbox" value="チェックボックス" required>
+                        <a href="#info-1" class="info">プライバシーポリシー</a>に同意します。
+
+                        <!-- 表示するエリア -->
+                        <section id="info-1" class="hide-area">
+                            <div class="info-1-text">
+                                <h2>Privacy Policy</h2>
+                                <p>
+                                    当サイトでは、お客様のプライバシーを尊重し、個人情報の取り扱いに十分な配慮を行い、適切かつ安全な管理に努めています。<br><br>
+                                
+                                    個人情報の利用目的<br><br>
+                                    <span>1.お客様のご要望に基づいたサービス提供および関連するご連絡のため。</span><br>
+                                    <span>2.お問い合わせ内容への回答のため。</span><br>
+                                    <span>3.資料の送付などのため。</span><br><br>
+                                    
+                                    取得した個人情報は、ご本人の同意がない限り、上記の目的以外では使用いたしません。 <br>
+                                    また、個人情報の漏洩を防ぐため、適切な管理を行い、従業員および委託業者にも適切な監督を行います。 <br>
+                                    ご本人の同意なく、第三者に個人情報を提供することはありません。
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- 送信ボタン -->
+                    <div class="left-submit">
+                        <input type="submit" class="button" value="送信">
+                    </div>
+                </div>
+                
+            </main>
+        </div>
+    </body>
+</html>
