@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/* ================================================================
+TOPICS LIST
+=================================================================== */
+.left-title {
+    color: var(--accent-color);
+    padding: 1rem 0;
+}
+.left-title h2 {
+    font: var(--text-font);
+    font-size: 1rem;
+    color: var(--accent-color);
+    text-transform: capitalize;
+    letter-spacing: 0.5rem;
+}
+.left-title p {
+    font: var(--sub-font);
+    font-size: 1rem;
+	color: var(--sub-color);
+    padding: 1rem 0;
+}
+.left-title::before {
+    content: '';
+    position: relative;
+    top: 1.5rem;
+    left: -2rem;
+    display: inline-block;
+    width: 10px;
+    height: 1px;
+    background-color: var(--main-color);
+}
+
+/* ================================================================
+SIDE BOTTUN 
+=================================================================== */
+.side-btn a::after {
+    background-image: url("../../common/img/banner_02.png");
+}
+.side-btn a:hover::after {
+    background-image: url("../../common/img/banner_07.png");
+}
+
+/* ================================================================
+MOBILE
+=================================================================== */
+@media screen and (max-width: 500px) {
+	/* 下画面の設定 */
+    .left-container {
+        width: 100vw;
+        height: 50vh;
+        padding: 0 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    /* 説明欄の位置を少し上にずらす */
+    .left-wrapper {
+        padding-bottom: 8rem;
+    }
+    .left-title h2 {
+        font-size: 1rem;
+    }
+    .left-title p {
+        font-size: 0.8rem;
+    }
+    .left-title::before {
+        top: 1.5rem;
+        left: -2.5rem;
+        width: 1rem;
+    }
+    .left-description  p {
+        font-size: 0.8rem;
+    }
+    /* 上画面の設定 */
+    .subtitle-mobile {
+        background-color: var(--base-color);
+    }
+
+    /* 一覧に戻るボタン */
+    .left-return-btn {
+        display: block;
+        width: 100vw;
+        padding: 0 5rem;
+        position: absolute;
+        bottom: 4rem;
+        left: 0;
+    }
+    .left-return-btn a {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        color: var(--base-color);
+        background-color: var(--accent-color);
+        font-size: 1rem;
+        font: var(--sub-font);
+    }
+}
+
+/* ================================================================
+DESKTOP
+=================================================================== */
+@media screen and (min-width: 501px) {
+    .left-return-btn {
+        display: none;
+    }
+}
