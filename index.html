@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>HOME - MARUYAMA's PORTFOLIO</title>
+		<meta name="description" content="maruyama's portfolio">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--リセットcss-->
+		<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+        <!--Googleフォント-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Philosopher">
+        <!--ファビコン-->
+        <link rel="icon" type="image/png" href="common/img/favicon.png">
+        <!--自作のcss-->
+        <link rel="stylesheet" href="common/css/common.css">
+        <link rel="stylesheet" href="_css/style.css">
+        <!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer></script>
+        <!--font awesome-->
+        <script src="https://kit.fontawesome.com/e63ff7a4be.js" crossorigin="anonymous" defer></script>
+        <!--Adobeフォント-->
+		<script defer>
+        (function(d) {
+            var config = {
+            kitId: 'qnv1mex',
+            scriptTimeout: 3000,
+            async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+        </script>
+		<!--自作のjs-->
+        <script src="common/js/common.js" defer></script>
+        <script src="_js/script.js" defer></script>
+	</head>
+	
+	<body>
+
+        <!--マウスストーカー-->
+        <div class="stalker" id="js-stalker"></div>
+
+        <!-- ロード画面 -->
+        <div id="splash">
+            <div id="splash-logo">
+
+                <div class="splash-logo-container">
+                    <div class="splash-logo-img">
+                        <img src="_img/loading_01.png" alt="ロード画面">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!---画面遷移用-->
+        <div class="splashbg"></div>
+        
+        <!--画面遷移後に表示-->
+        <div id="container">
+
+            <!-- ヘッダー -->
+            <header>
+                <!-- snsアイコン -->
+                <div class="header-sns">
+                    <ul class="header-sns-list">
+                        <li><a href="https://x.com/maru_create0906"><i class="fa-brands fa-x-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/maru.creative.cloud/"><i class="fa-brands fa-instagram"></i></a></li>
+                    </ul>                    
+                </div>
+                <!-- menuボタン -->
+                <div class="header-menu">
+                    <div class="header-open">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <nav id="header-nav">
+                        <div class="header-nav-list">
+                            <ul>
+                                <li><a href="index.html" class="current">home</a></li>
+                                <li><a href="topics.html">topics</a></li>
+                                <li><a href="about.html">about</a></li>
+                                <li><a href="works.html">works</a></li>
+                                <li><a href="contact.html">contact</a></li>
+                            </ul>
+                            <!-- モバイル版のみに対応 -->
+                            <ul class="header-sns-list-mobile">
+                                <li><a href="https://x.com/maru_create0906"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="https://www.instagram.com/maru.creative.cloud/"><i class="fa-brands fa-instagram"></i></a></li>
+                            </ul> 
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- サイドボタン -->
+            <div class="side-btn">
+                <a href="works.html"></a>
+            </div>
+	
+            <!-- ここからメインの画面 -->
+            <main>
+                
+                <!--ここから右画面-->
+                <div class="right-area">
+
+                    <!-- メイン画像 -->
+                    <div class="right-hero">
+                        <div class="right-hero-img"><img src="_img/hero_01.png" alt="背景画像"></div>
+                    </div>
+                    
+                    <!-- コピーライト -->
+                    <div class="copyright">
+                        <p><small>&copy; 2026 maruyama asuka</small></p>
+                    </div>
+
+                </div>
+
+                <!--ここから左画面-->
+                <div class="left-area">
+                    
+                    <!-- ここからデスクトップ画面用 -->
+                    <div class="left-subtitle">
+                        <img src="_img/logo_title.png">
+                    </div>
+
+                    <!-- ここからモバイル画面用 -->
+                    <div class="left-hero-mobile">
+                        <div class="right-hero-image-mobile"><img src="_img/hero_02.png" alt="タイトル画像"></div>
+                    </div>
+
+                    <div class="copyright-mobile">
+                        <p><small>&copy; 2026 maruyama asuka</small></p>
+                    </div>
+
+                    <div class="left-btn-mobile">
+                        <p>go to works page</p>
+                        <a href="works.html">
+                            <div class="left-btn-icon-mobile">
+                                <i class="fa-solid fa-play"></i>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+            </main>
+            
+        </div>
+	</body>
+</html>
