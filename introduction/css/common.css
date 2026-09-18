@@ -1,0 +1,324 @@
+@charset "UTF-8";
+/* ================================================================
+SIDE AREA
+=================================================================== */
+/* 左画面・サイドボタン */
+.side-btn a::after {
+    background-image: url("../../common/img/banner_04.png");
+}
+.side-btn a:hover::after {
+    background-image: url("../../common/img/banner_08.png");
+}
+
+/* ================================================================
+SCROLL
+=================================================================== */
+/* スクロール画面/右画面 */
+.ms-right .ms-section .ms-contents {
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 20%;
+    background-color: var(--base-color);
+}
+/* スクロール画面/左画面 */
+.ms-left .ms-section .ms-contents {
+    width: 60vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+/* ドットナビゲーション */
+#multiscroll-nav {
+    position: absolute;
+    width: 0;
+    top: 50% !important;
+    left: 57% !important;
+    z-index: 1 !important;
+}
+#multiscroll-nav ul li {
+    opacity: 1 !important;
+    padding: 0.5rem 0;
+}
+/* ツールチップを常に表示する */
+#multiscroll-nav ul li .multiscroll-tooltip {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    left: -80px;
+    background: transparent; 
+    color: var(--accent-color);
+    font: var(--sub-font);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    white-space: nowrap;
+}
+
+/* ================================================================
+MAIN
+=================================================================== */
+.ms-contents {
+    padding: 0 8.5rem;
+}
+/* 右画面・サムネイル-タイトル画面 */
+.subtitle:hover .subtitle-image {
+    opacity: 1;
+}
+
+/* 左画面・タイトル */
+.sp-bottom-title h2 {
+    padding: 0.5rem 0;
+    font: var(--main-font);
+    font-size: 3rem;
+    font-weight: 200;
+    color: var(--accent-color);
+}
+.sp-bottom-title p {
+    color: var(--accent-color);
+}
+/* 左画面・カテゴリー */
+.sp-bottom-category {
+    display: inline-block;
+    background-color: var(--sub-color);
+    color: var(--base-color);
+    font: var(--main-font);
+    border-radius: 5rem;
+    padding: 0.3rem 1rem;
+    margin: 1rem 0;
+    text-transform: uppercase;
+}
+
+/* 左画面・説明欄 */
+.sp-top table tr td {
+    vertical-align: top;
+    border-bottom: 1px solid var(--sub-color);
+    padding: 1rem;
+}
+.sp-top table tr td h2 {
+    background-color: var(--accent-color);
+    color: var(--base-color);
+    font: var(--sub-font);
+    font-size: 0.7rem;
+    letter-spacing: 0.3rem;
+    width: 8rem;
+    padding: 0.2rem 0;
+    margin: 0.1rem 0;
+    border-radius: 3rem;
+    text-align: center;
+}
+.sp-top table tr td p {
+    font-size: 0.8rem;
+}
+
+
+/* ================================================================
+MODAL WINDOW
+=================================================================== */
+/* モーダルの背景 */
+.modal {
+  display: none; /* 初期状態は非表示 */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); 
+  /* 半透明の黒 */
+  justify-content: center;
+  align-items: center;
+}
+/* 閉じるボタン */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+}
+/* 拡大表示ボタン */
+button {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: var(--base-color);
+    font: var(--sub-font);
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    border: none;
+    border-radius: 4rem;
+    cursor: pointer;
+    margin: 2rem;
+}
+
+button i {
+    padding: 0 0.5rem;
+}
+
+
+/* ================================================================
+BUTTON
+=================================================================== */
+.left-return-btn {
+    display: block;
+    width: 100vw;
+    padding: 0 5rem;
+    position: relative;
+    z-index: 5;
+    bottom: 4rem;
+    left: 0;
+}
+.left-return-btn a {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    color: var(--base-color);
+    background-color: var(--accent-color);
+    font-size: 1rem;
+    font: var(--sub-font);
+}
+
+/* ================================================================
+MOBILE
+=================================================================== */
+@media screen and (max-width:500px) {
+
+    /* ---------------------
+    MAIN 
+    --------------------- */
+    /* multiscrollを使用した画面のレイアウト */
+    .ms-right .ms-section .ms-contents {
+        display: none;
+    }
+    .ms-left .ms-section .ms-contents {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--bg-color);
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 0;
+    }
+
+    /* ---------------------
+    SCROLL
+    --------------------- */
+    /* 表 */
+    .sp-top-01  {
+        width: 100vw;
+        height: 50vh;
+        position: absolute;
+        top: 0;
+    }
+    .sp-bottom-01 {
+        width: 100vw;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+    }
+    /* 上画面 */
+    .sp-top  {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 0;
+    }
+    /* 下画面 */
+    .sp-bottom {
+        width: 100vw;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 0;
+    }
+    .sp-top table {
+        padding: 0 2rem;
+    }
+    .sp-top table tr td {
+        display: block;
+        border-bottom: 0px solid var(--sub-color);
+        padding: 0.5rem;
+    }
+    .sp-top table tr td h2 {
+        font-size: 0.6rem;
+    }
+    .sp-top table tr td p {
+        font-size: 0.8rem;
+    }
+
+
+    /* 下画面：作品タイトル */
+    .sp-bottom-title h2 {
+        font-size: 1rem;
+    }
+    .sp-bottom-title p {
+        font-size: 0.8rem;
+    }
+    .sp-bottom-description p {
+        font-size: 0.7rem;
+    }
+
+    /* ---------------------
+    MODAL WINDOW
+    --------------------- */
+    /* 閉じるボタン */
+    .modaal-close {
+        top: -10px !important;
+        right: -10px !important;
+    }
+    /* 矢印ボタン全体を下へ下げる */
+    /* .modaal-gallery-control {
+        bottom: -150px;
+    } */
+    /* 前へ（左）の矢印 */
+    /* .modaal-gallery-control.modaal-prev {
+        left: -40px; 
+        right: auto;
+    } */
+    /* 次へ（右）の矢印 */
+    /* .modaal-gallery-control.modaal-next {
+        right: -40px;
+        left: auto;
+    } */
+
+
+}
+
+/* ================================================================
+DESKTOP
+=================================================================== */
+@media screen and (min-width:501px) {
+    /* 一覧へ戻るボタンを非表示 */
+    .left-return-btn {
+        display: none;
+    }
+}
