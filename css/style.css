@@ -41,7 +41,7 @@ LOADING
     display: inline-block;
     width: 100%;
     height: 100%;
-    background-image: url("../_img/loading_02.png");
+    background-image: url("../img/loading_02.png");
     background-size: cover;
     animation: rotate-animation 35s linear infinite;
     transform-origin: center;
