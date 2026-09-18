@@ -1,0 +1,265 @@
+@charset "UTF-8";
+/* ================================================================
+LOADING
+=================================================================== */
+#splash {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: var(--accent-color);
+	z-index: 9999999999;
+	text-align:center;
+	color:#fff;
+}
+#splash-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.splashbg{
+    display: none;
+}
+body.appear .splashbg{
+    display: block;
+    content: "";
+    position:fixed;
+	z-index: 99999999;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+	left: 0;
+    transform: scaleY(0);
+    background-color: var(--accent-color);
+	animation-name:PageAnime;
+	animation-duration:1s;
+	animation-timing-function:ease-in-out;
+	animation-fill-mode:forwards;
+}
+@keyframes PageAnime{
+	0% {
+		transform-origin:top;
+		transform:scaleY(0);
+	}
+	50% {
+		transform-origin:top;
+		transform:scaleY(1);
+	}
+	50.001% {
+		transform-origin:bottom;
+	}
+	100% {
+		transform-origin:bottom;
+		transform:scaleY(0);
+	}
+}
+
+#container{
+	opacity: 0;
+}
+body.appear #container{
+	animation-name:PageAnimeAppear;
+	animation-duration:1s;
+	animation-delay: 0.8s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+}
+@keyframes PageAnimeAppear{
+	0% {
+	opacity: 0;
+	}
+	100% {
+	opacity: 1;
+}
+}
+
+/* ================================================================
+SIDE BUTTON
+=================================================================== */
+.side-btn a::after {
+    background-image: url("../common/img/banner_04.png");
+}
+.side-btn a:hover::after {
+    background-image: url("../common/img/banner_06.png");
+}
+
+/* ================================================================
+GALLERY
+=================================================================== */
+.left-gallery {
+    width: 100%;
+	height: 90vh;
+}
+.left-gallery-container {
+	width: 100%;
+	height: 80vh;
+	padding: 0 3rem;
+	overflow: scroll;
+}
+.sort {
+	width: 100%;
+	height: auto;
+	padding: 2.5rem 0;
+}
+
+/*---------------------
+並び替えボタンのCSS
+-----------------------*/
+.sort-btn{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: auto;
+}
+.sort-btn li {
+	background-color: var(--base-color);
+    list-style: none;
+	border-radius: 10rem;
+    border: 1px solid var(--main-color);
+	cursor: pointer;
+	padding: 0.3rem 1rem;
+	margin: 0 1rem;
+	font: var(--main-font);
+    font-size: 0.8rem;
+}
+.sort-btn li:hover {
+    background-color: var(--accent-color);
+	border: 1px solid var(--accent-color);
+	color: var(--base-color);
+    transition: all .3s;
+}
+.sort-btn li.active{
+	/*ボタンに現在地＝activeというクラス名がついたら背景色を変更*/
+	background-color: var(--accent-color);
+	border: 1px solid var(--accent-color);
+    color: var(--base-color);
+}
+
+/*----------------------
+横幅が480px以下になった際の指定
+------------------------*/
+@media only screen and (max-width: 480px) {
+    .sort-btn{
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap; 
+    }
+    .sort-btn li{
+        width: 20%;
+        margin: 0.5rem;
+        text-align: center;
+		padding: 0.3rem;
+		font-size: 0.8rem;
+    }
+	.left-gallery-container {
+		height: 50vh;
+		padding: 0;
+	}
+}
+
+
+/*----------------------
+Muuriのレイアウトのための調整 
+-------------------------*/
+.grid {
+    position: relative;
+}
+.item {
+    display: block;
+    position: absolute;
+    width: 33%;
+    padding: 1rem;
+    z-index: 1;
+}
+
+.item-content {
+	/*内側のボックスの高さが崩れないように維持*/
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.grid img{
+	width:100%;
+	/*画像の横幅を100%にしてレスポンシブ化*/
+	height:auto;
+	vertical-align: bottom;
+}
+.grid img:hover {
+	transition: all .3s;
+	transform: scale(1.1);
+}
+
+/*---------------------
+横幅が768px以下になった際の指定
+-----------------------*/
+@media only screen and (max-width: 768px) {
+.item {
+    width: 49.5%;
+}
+}
+
+/*--------------------
+fancyboxサムネイル背景と画像選択時の枠線の指定
+---------------------*/
+.fancybox-thumbs {
+    background: transparent!important;
+}
+
+.fancybox-thumbs__list a:before {
+    border: 6px solid #FA999B;
+}
+
+
+/* ----------------------
+fancybox
+retouchのサムネイルの設定
+---------------------- */
+/* 親要素を基準にし、画像を重ねて配置 */
+.thumb-image-wrap {
+  position: relative;
+}
+
+.thumb-image-wrap img.hover-img  {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* ホバー時に画像を切り替え */
+.thumb-image-wrap:hover img.normal-img  { 
+	opacity: 0; 
+}
+.thumb-image-wrap:hover img.hover-img  { 
+	opacity: 1; 
+}
+
+
+
+/* ----------------------
+fancybox
+retouchのモーダルウィンドウの設定
+----------------------  */
+.modal-image-wrap {
+	position: relative;
+	width: 60vw;
+	height: auto;
+}
+.modal-image-wrap img.modal-nomal-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+/* ホバー時に画像を切り替え */
+.modal-image-wrap:hover img.modal-nomal-img {
+	opacity: 0; 
+}
+.modal-image-wrap:hover img.modal-hover-img {
+	opacity: 1; 
+}
+.hide-area {
+	opacity: 0;
+}

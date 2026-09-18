@@ -1,0 +1,147 @@
+@charset "UTF-8";
+/* ================================================================
+LOADING
+=================================================================== */
+/* ローディング画面 */
+#splash {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: var(--accent-color);
+	z-index: 9999999999;
+	text-align:center;
+	color:#fff;
+}
+#splash-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* 画面遷移アニメーション */
+.splashbg{
+    display: none;
+}
+/* bodyにappearクラスがついたら出現 */
+body.appear .splashbg{
+    display: block;
+    content: "";
+    position:fixed;
+	z-index: 99999999;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+	left: 0;
+    transform: scaleY(0);
+    background-color: var(--accent-color);
+	animation-name:PageAnime;
+	animation-duration:1s;
+	animation-timing-function:ease-in-out;
+	animation-fill-mode:forwards;
+}
+@keyframes PageAnime{
+	0% {
+		transform-origin:top;
+		transform:scaleY(0);
+	}
+	50% {
+		transform-origin:top;
+		transform:scaleY(1);
+	}
+	50.001% {
+		transform-origin:bottom;
+	}
+	100% {
+		transform-origin:bottom;
+		transform:scaleY(0);
+	}
+}
+
+/* 画面遷移後 */
+#container{
+	opacity: 0;
+}
+/* bodyにappearクラスがついたら出現 */
+body.appear #container{
+	animation-name:PageAnimeAppear;
+	animation-duration:1s;
+	animation-delay: 0.8s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+}
+@keyframes PageAnimeAppear{
+	0% {
+	opacity: 0;
+	}
+	100% {
+	opacity: 1;
+	}
+}
+
+/* ================================================================
+TOPICS
+=================================================================== */
+.left-container ul li a h2 {
+	font: var(--text-font);
+    font-size: 1rem;
+	letter-spacing: 0.5rem;
+	color: var(--accent-color);
+	text-transform: capitalize;
+}
+.left-container ul li a p {
+    font: var(--sub-font);
+    font-size: 1rem;
+	color: var(--sub-color);
+    padding: 1rem 0;
+}
+.left-container ul li::before {
+    content: '';
+    position: relative;
+    top: 1.5rem;
+    left: -2rem;
+    display: inline-block;
+    width: 10px;
+    height: 1px;
+    background-color: var(--main-color);
+}
+
+/* ================================================================
+SIDE BOTTUN 
+=================================================================== */
+.side-btn a::after {
+    background-image: url("../common/img/banner_02.png");
+}
+.side-btn a:hover::after {
+    background-image: url("../common/img/banner_06.png");
+}
+
+/* ================================================================
+MOBILE
+=================================================================== */
+@media screen and (max-width: 500px) {
+	.left-container ul li a h2 {
+		font-size: 1rem;
+	}
+	.left-container ul li a p {
+		font-size: 0.8rem;
+	}
+	.left-container ul li::before {
+		top: 1.5rem;
+		left: -2.5rem;
+		width: 1rem;
+	}
+	/* 上画面の設定 */
+	.left-container {
+		width: 100vw;
+		height: 50vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 5rem;
+	}
+	/* 下画面の設定 */
+	.subtitle-mobile {
+		background-color: var(--base-color);
+	}
+}

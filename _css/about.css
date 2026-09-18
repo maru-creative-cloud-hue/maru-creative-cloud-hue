@@ -1,0 +1,224 @@
+@charset "UTF-8";
+/* ================================================================
+LOADING
+=================================================================== */
+/* ローディング画面 */
+#splash {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: var(--accent-color);
+	z-index: 9999999999;
+	text-align:center;
+	color:#fff;
+}
+#splash-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* 画面遷移アニメーション */
+.splashbg{
+    display: none;
+}
+/* bodyにappearクラスがついたら出現 */
+body.appear .splashbg{
+    display: block;
+    content: "";
+    position:fixed;
+	z-index: 99999999;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+	left: 0;
+    transform: scaleY(0);
+    background-color: var(--accent-color);
+	animation-name:PageAnime;
+	animation-duration:1s;
+	animation-timing-function:ease-in-out;
+	animation-fill-mode:forwards;
+}
+@keyframes PageAnime{
+	0% {
+		transform-origin:top;
+		transform:scaleY(0);
+	}
+	50% {
+		transform-origin:top;
+		transform:scaleY(1);
+	}
+	50.001% {
+		transform-origin:bottom;
+	}
+	100% {
+		transform-origin:bottom;
+		transform:scaleY(0);
+	}
+}
+
+/* 画面遷移後 */
+#container{
+	opacity: 0;
+}
+/* bodyにappearクラスがついたら出現 */
+body.appear #container{
+	animation-name:PageAnimeAppear;
+	animation-duration:1s;
+	animation-delay: 0.8s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+}
+@keyframes PageAnimeAppear{
+	0% {
+	opacity: 0;
+	}
+	100% {
+	opacity: 1;
+}
+}
+
+/* ================================================================
+SIDE BOTTUN 
+=================================================================== */
+.side-btn a::after {
+    background-image: url("../common/img/banner_03.png");
+}
+.side-btn a:hover::after {
+    background-image: url("../common/img/banner_06.png");
+}
+
+/* ================================================================
+MAIN
+=================================================================== */
+.contents {
+	width: 100%;
+	height: auto;
+	padding: 2rem 10rem;
+} 
+.sort {
+	width: 100%;
+	height: auto;
+}
+
+/*---------------------
+並び替えボタンのCSS
+-----------------------*/
+.sort-btn{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: auto;
+}
+.sort-btn li {
+	background-color: var(--base-color);
+    list-style: none;
+	border-radius: 10rem;
+    border: 1px solid var(--main-color);
+	cursor: pointer;
+	padding: 0.3rem 1rem;
+	margin: 0 1rem;
+	font: var(--main-font);
+    font-size: 0.8rem;
+}
+.sort-btn li:hover {
+    background-color: var(--accent-color);
+	border: 1px solid var(--accent-color);
+	color: var(--base-color);
+    transition: all .3s;
+}
+.sort-btn li.active{
+	/*ボタンに現在地＝activeというクラス名がついたら背景色を変更*/
+	background-color: var(--accent-color);
+	border: 1px solid var(--accent-color);
+    color: var(--base-color);
+}
+
+/*----------------------
+横幅が480px以下になった際の指定
+------------------------*/
+@media only screen and (max-width: 480px) {
+	.contents {
+		width: 100%;
+		height: 50vh;
+		padding: 0 1.5rem;
+	}
+    .sort-btn{
+		width: 100%;
+		height: auto;
+		padding: 2rem;
+		justify-content: space-between;
+    }
+    .sort-btn li{
+        width: auto;
+        margin: 0;
+        text-align: center;
+		padding: 0.3rem 1rem;
+    }
+}
+
+/*----------------------
+Muuriのレイアウトのための調整 
+-------------------------*/
+.grid {
+    position: relative;
+}
+.item {
+    display: block;
+    position: absolute;
+    padding: 1rem;
+    z-index: 1;
+}
+.item01 {
+	width: 100%;
+}
+.item02, .item03 {
+	width: 50%;
+}
+.item04 {
+	width: 33%;
+}
+
+.item-content {
+	/*内側のボックスの高さが崩れないように維持*/
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.grid img{
+	width:100%;
+	/*画像の横幅を100%にしてレスポンシブ化*/
+	height: auto;
+	vertical-align: bottom;
+}
+.grid img:hover {
+	transition: all .3s;
+	transform: scale(1.1);
+}
+
+/*---------------------
+横幅が768px以下になった際の指定
+-----------------------*/
+@media only screen and (max-width: 768px) {
+	.item {
+		padding: 0.5rem;
+	}
+	/* .item01 .item-content img {
+		width: 80%;
+	}
+	.item02 .item-content img {
+		width: 80%;
+	} */
+}
+
+/*--------------------
+fancyboxサムネイル背景と画像選択時の枠線の指定
+---------------------*/
+.fancybox-thumbs {
+    background: transparent!important;
+}
+
+.fancybox-thumbs__list a:before {
+    border: 6px solid #FA999B;
+}
