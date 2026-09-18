@@ -1,0 +1,582 @@
+@charset "UTF-8";
+/* ================================================================
+COMMON
+=================================================================== */
+:root {
+    --base-color: #fff;
+    --bg-color: #F7F7F7;
+    --main-color: #6a6a6a;
+    --sub-color: #ccc;
+    --accent-color: #B1D3DB;
+    --main-font: normal 400 1rem/1.3 "ab-suzume", sans-serif;
+    --sub-font: normal 300 1rem/1.3 "futura-pt", sans-serif;
+    --text-font: normal 200 1rem/2 "source-han-sans-japanese", sans-serif;
+}
+/* * {
+    outline: 1px solid red;
+} */
+html {
+	font-size: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    font-display: swap;
+    visibility: hidden;
+    word-break: normal;
+}
+html.wf-active {
+    visibility: visible;
+}
+html::-webkit-scrollbar{
+    display:none;
+}
+body {
+    color: var(--main-color);
+    letter-spacing: 0.2rem;
+    width: 100vw;
+    height: 100vh;
+}
+h2 {
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    transition: all .3s;
+	text-decoration: none;
+}
+p {
+    font: var(--text-font);
+}
+img {
+	max-width: 100%;
+}
+
+/* ================================================================
+MOUSE
+=================================================================== */
+.stalker {
+    /* width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    opacity: 0.7;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    margin-top: -10px;
+    margin-left: -10px;
+    transition: transform 0.1s ease-out;
+    z-index: 9999; */
+
+
+    position: fixed;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--sub-color);
+    z-index: 9999;
+    transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s;
+    transform: translate(0, 0);
+    pointer-events: none;
+}
+.stalker.cursor--hover {
+    top: -20px;
+    left: -20px;
+    width: 60px;
+    height: 60px;
+    /* background: rgba(132, 181, 197, 0.5); */
+    background-color: var(--accent-color);
+    opacity: 0.8;
+}
+
+/* ================================================================
+HEADER
+=================================================================== */
+/*ヘッダー*/
+header {
+    position: relative;
+    z-index: 10;
+    width: 100vw;
+	height: auto;
+	display: flex;
+}
+/* ヘッダー/snsアイコン */
+.header-sns {
+    position: fixed;
+    z-index: 11;
+    top: 2.6rem;
+    right: 8rem;
+    display: inline-block;
+}
+.header-sns-list {
+    display: flex;
+}
+.header-sns-list li {
+    padding: 0 0.7rem;
+}
+.header-sns-list li a i {
+    font-size: 2rem;
+    color: var(--main-color);
+}
+.header-sns-list li a i:hover {
+    transform: scale(1.1);
+    transition: all .3s;
+}
+
+/*ヘッダー/メニューボタン/ハンバーガーアイコン */
+.header-open {
+    position: fixed;
+    z-index: 10;
+    top: 1rem;
+    right: 1rem;
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--main-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.header-open:hover {
+    transform: scale(1.1);
+    transition: all .3s;
+}
+.header-open span {
+    display: inline-block;
+    width: 3rem;
+    height: 1.5px;
+    background-color: var(--base-color);
+    position: absolute;
+    left: 16px;
+}
+.header-open span:nth-of-type(1) {
+    top: 35px;
+}
+.header-open span:nth-of-type(2) {
+    top: 45px;
+}
+
+/* ×に変化する */
+.header-open.active span:nth-of-type(1) {
+    top: 35px;
+    left: 16px;
+    transform: translateY(5px)rotate(-20deg);
+    width: 60%;
+    transition: all .3s;
+} 
+.header-open.active span:nth-of-type(2) {
+    top: 45px;
+    left: 16px;
+    transform: translateY(-5px)rotate(20deg);
+    width: 60%;
+    transition: all .3s;
+}
+
+/*ヘッダー/メニューボタン/ナビゲーション*/
+#header-nav {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: -120%;
+    width: 30%;
+    height: 100vh;
+    background-color: var(--sub-color);
+    transition: all .5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* アクティブクラスが付いたら位置を0にする */
+#header-nav.panelactive {
+    right: 0;
+}
+
+/* ナビゲーションリスト */
+.header-nav-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header-nav-list ul {
+    text-align: center;
+}
+.header-nav-list ul li {
+    margin: 3rem 0;
+}
+.header-nav-list ul li a {
+    font: var(--sub-font);
+    font-size: 1.5rem;
+    color: var(--base-color);
+    text-transform: uppercase;
+}
+.header-nav-list ul li a:hover {
+    color: var(--main-color);
+}
+.header-nav-list ul .current{
+    color: var(--main-color);
+}
+
+/* ================================================================
+MAIN
+=================================================================== */
+main {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.right-area {
+	width: 40vw;
+	height: 100vh;
+	display: flex;
+    flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.left-area {
+	width: 60vw;
+	height: 100vh;
+	display: flex;
+    flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--bg-color);
+}
+
+
+/* ================================================================
+IMAGE
+=================================================================== */
+/* ホバー画像 */
+.subtitle {
+    position: relative;
+    width: 40vw;
+    height: 100vh;
+}
+.subtitle-image,
+.subtitle-hover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30rem;
+    height: 30rem;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    transition: all 0.4s;
+}
+.subtitle-image {
+    opacity: 1;
+}
+.subtitle-hover {
+    opacity: 0;
+}
+.subtitle-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/logo_01.png");
+    background-size: cover;
+    animation: rotate-animation 35s linear infinite;
+    transform-origin: center;
+}
+@keyframes rotate-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.subtitle-image:hover {
+    opacity: 0;
+}
+.subtitle-hover:hover {
+    opacity: 1;
+}
+
+
+/* ================================================================
+FOOTER
+=================================================================== */
+/* コピーライト */
+.copyright {
+    position: absolute;
+    bottom: 1rem;
+}
+.copyright p {
+    font: var(--sub-font);
+}
+
+/* ================================================================
+SIDE AREA
+=================================================================== */
+/*サイドボタン*/
+.side-btn {
+    position: fixed;
+    z-index: 5;
+    bottom: -7rem;
+    left: -7rem;
+    text-align: right;
+    width: 20rem;
+    height: 20rem;
+}
+.side-btn a:hover::before {
+    transform: scale(1.1);
+    transition: all .3s;
+}
+.side-btn a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+.side-btn a:hover::after {
+    transform: scale(1.1);
+    transition: all .3s;
+}
+
+/* ================================================================
+MODAL WINDOW
+=================================================================== */
+.hide-area{
+	display: none;
+}
+/*全て共通：モーダルのボタンの色を変更したい場合*/
+.modaal-close:after, 
+.modaal-close:before{
+	background:#ccc;	
+}
+.modaal-close:focus:after,
+.modaal-close:focus:before,
+.modaal-close:hover:after,
+.modaal-close:hover:before{
+	background:#666;
+}
+/*確認を促すモーダル：タイトルの色を変更したい場合*/
+#modaal-title{
+	font-size:1.2rem;
+	text-align: center;
+	margin: 0 0 20px 0;
+}
+/*動画表示のモーダル：余白を変更したい場合*/
+.modaal-video .modaal-inner-wrapper{
+	padding:0;
+}
+
+/* ================================================================
+MOBILE
+=================================================================== */
+@media screen and (max-width: 500px) {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    body {
+        width: 100%;
+        word-break: break-all;
+    }
+
+    /* ---------------------
+    MOUSE 
+    --------------------- */
+    .stalker {
+        display: none;
+    }
+
+    /* ---------------------
+    MAIN 
+    --------------------- */
+    main {
+        flex-direction: column;
+    }
+
+    /* 1ページのみの画面のレイアウト */
+    .right-area {
+        display: none;
+    }
+    .left-area {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    /* --------------------- 
+    HEADER 
+    --------------------- */
+    /* ヘッダー/snsアイコン */
+    .header-sns {
+        display: none;
+    }
+
+    /*ヘッダー/メニューボタン/ハンバーガーアイコン */
+    .header-open {
+        top: 15px;
+        right: 15px;
+        background-color: var(--main-color);
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+    }
+    .header-open span {
+        background-color: var(--base-color);
+        width: 30px;
+        height: 1.5px;
+    }
+    .header-open span:nth-of-type(1) {
+        top: 25px;
+        left: 15px;
+    }
+    .header-open span:nth-of-type(2) {
+        top: 35px;
+        left: 15px;
+    }
+    /* ×に変化する */
+    .header-open.active span:nth-of-type(1) {
+        top: 26px;
+        left: 11px;
+    }
+    .header-open.active span:nth-of-type(2) {
+        top: 36px;
+        left: 11px;
+    }
+    /* ナビゲーションメニュー */
+    #header-nav {
+        width: 100%;
+    }
+    /* ヘッダー/snsアイコン */
+    .header-sns-list-mobile {
+        display: flex;
+    }
+    .header-sns-list-mobile li {
+        padding: 0 1rem;
+    }
+
+    /* --------------------- 
+    SIDE AREA
+    --------------------- */
+    .side-btn {
+        display: none;
+    }
+    .side-category {
+        display: none;
+    }
+
+    /* --------------------- 
+    IMAGE
+    --------------------- */
+    .subtitle-mobile {
+        width: 100vw;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--base-color);
+    }
+    .subtitle-mobile-image {
+        width: 16rem;
+        height: 16rem;
+        position: relative;
+    }
+    .subtitle-mobile-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-image: url("../img/logo_01.png");
+        background-size: cover;
+        animation: rotate-animation 30s linear infinite;
+        transform-origin: center;
+    }
+    @keyframes rotate-animation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* ---------------------
+    FOOTER
+    --------------------- */
+    .copyright-mobile {
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        background-color: var(--bg-color);
+        width: 100vw;
+        height: auto;
+    }
+    .copyright-mobile p {
+        font: var(--sub-font);
+        padding: 0.4rem 0;
+        text-align: center;
+    }
+
+    /* ---------------------
+    SCROLL
+    --------------------- */
+    #multiscroll-nav {
+        display: none;
+    }
+
+    /* ---------------------
+    MODAL WINDOW
+    --------------------- */
+    /* 矢印ボタン全体を下へ下げる */
+    .modaal-gallery-control {
+        bottom: -70px;
+    }
+}
+
+/* ================================================================
+DESKTOP
+=================================================================== */
+@media screen and (min-width: 501px) {
+    /* ボタンを非表示 */
+    .left-btn-mobile {
+        display: none;
+    }
+
+    /* タイトルの画面を非表示 */
+    .subtitle-mobile {
+        display: none;
+    }
+
+    /* コピーライトを非表示 */
+    .copyright-mobile {
+        display: none;
+    }
+
+    /* ヘッダー/snsアイコンを非表示 */
+    .header-sns-list-mobile {
+        display: none;
+    }
+}
+@media screen and (min-width: 2000px) {
+    .subtitle-image,
+    .subtitle-hover {
+        width: 45rem;
+        height: 45rem;
+    }
+}
