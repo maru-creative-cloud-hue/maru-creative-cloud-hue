@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/* ================================================================
+MODAL WINDOW
+=================================================================== */
+.sp-bottom-title h2 {
+    font: var(--text-font);
+    font-size: 2rem;
+}
+/* ギャラリー/モーダルウィンドウ */
+#left4 .gallery-list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+}
+.gallery-list li a img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover;    
+}
+
+/* ================================================================
+MOBILE
+=================================================================== */
+@media screen and (max-width:500px) {
+    .sp-bottom-title h2 {
+        font-size: 1rem;
+    }
+    #left4 .gallery-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .gallery-list li a img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;    
+    }
+}

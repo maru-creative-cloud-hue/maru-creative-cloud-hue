@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* ================================================================
+MAIN
+=================================================================== */
+.sp-bottom-title h2 {
+    font: var(--text-font);
+    font-size: 2rem;
+}
+.gallery-list li  {
+    object-fit: cover;  
+    padding: 5rem;
+}
+
+/* ================================================================
+MOBILE
+=================================================================== */
+@media screen and (max-width:500px) {
+    .sp-bottom-title h2 {
+        font-size: 1rem;
+    }
+    /* 矢印ボタン全体を下へ下げる */
+    .modaal-gallery-control {
+        bottom: -110px;
+    }
+}
